@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>FutsalTime Backend</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="/">FutsalTime</a>
+        <div class="navbar-nav">
+          <a class="nav-link" href="/api/">API Root</a>
+          <a class="nav-link" href="/api/docs/">Swagger</a>
+          <a class="nav-link" href="/admin/">Admin</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container py-5">
+      <div class="row g-4">
+        <div class="col-lg-8">
+          <div class="p-4 bg-white rounded shadow-sm">
+            <h1 class="h3 mb-2">Football Field Reservation API</h1>
+            <p class="text-muted mb-4">
+              Backend capstone project. This server provides authentication, field management,
+              availability checking, reservations with conflict prevention, and notifications.
+            </p>
+
+            <div class="row g-3">
+              <div class="col-md-6">
+                <div class="border rounded p-3 h-100">
+                  <h2 class="h6">Try the API</h2>
+                  <ul class="mb-0">
+                    <li><a href="/api/">API Root</a></li>
+                    <li><a href="/api/docs/">Swagger UI</a></li>
+                    <li><a href="/api/fields/">Fields endpoint</a></li>
+                    <li><a href="/api/reservations/">Reservations endpoint</a></li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="border rounded p-3 h-100">
+                  <h2 class="h6">What’s implemented</h2>
+                  <ul class="mb-0">
+                    <li>JWT auth (register/login/refresh)</li>
+                    <li>CRUD fields + availability</li>
+                    <li>Reservations + cancel + conflict prevention</li>
+                    <li>Notifications (stored + mark-all-read)</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <hr class="my-4"/>
+
+            <h2 class="h5">Quick start</h2>
+            <ol>
+              <li>Install deps: <code>pip install -r requirements.txt</code></li>
+              <li>Run migrations: <code>python manage.py migrate</code></li>
+              <li>Create admin: <code>python manage.py createsuperuser</code></li>
+              <li>Start server: <code>python manage.py runserver</code></li>
+            </ol>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div class="p-4 bg-white rounded shadow-sm">
+            <h2 class="h6">Demo flow</h2>
+            <ol class="small">
+              <li>Register: <code>POST /api/auth/register/</code></li>
+              <li>Login: <code>POST /api/auth/login/</code></li>
+              <li>Create field (admin) or via POST <code>/api/fields/</code></li>
+              <li>Check availability: <code>/api/fields/&lt;id&gt;/availability/?date=YYYY-MM-DD</code></li>
+              <li>Create reservation: <code>POST /api/reservations/</code></li>
+              <li>See notifications: <code>GET /api/notifications/</code></li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
